@@ -13,8 +13,14 @@ def main():
     while True:
 
         sleep(0.5)
+        updates_len = 0
         updates = ben.get_updates_json(offset=confirmed_offset + 1)
-        if len(updates['result']) > 0:
+        try:
+            updates_len = len(updates['result'])
+        except:
+        #     print("len(updates['result'] threw error.  Likely KeyError")
+            pass
+        if updates_len > 0:
             ud = updates['result'][-1]
             chat_id = ud['message']['chat']['id']
             if 'text' in ud['message'] \

@@ -26,8 +26,7 @@ class Bbw:
         return resp
 
     def send_photo(self, chat_id,
-                   photo='https://media-mammothresorts-com.s3-us-west-2.amazonaws.com/bbmr/snowsummit/cams/summitktla.jpg?={}'
-                   .format(time())):
+                   photo='https://media-mammothresorts-com.s3-us-west-2.amazonaws.com/bbmr/snowsummit/cams/summitktla.jpg?={}'.format(time())):
         method = 'sendPhoto'
         params = {'chat_id': chat_id, 'photo': photo}
         resp = requests.post(self.api_url + method, params)
