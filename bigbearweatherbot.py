@@ -1,6 +1,5 @@
 import requests
 from bs4 import BeautifulSoup
-from time import time
 
 
 class Bbw:
@@ -25,8 +24,8 @@ class Bbw:
         resp = requests.post(self.api_url + method, params)
         return resp
 
-    def send_photo(self, chat_id,
-                   photo='https://media-mammothresorts-com.s3-us-west-2.amazonaws.com/bbmr/snowsummit/cams/summitktla.jpg?={}'.format(time())):
+    def send_photo(self, chat_id, photo):
+        print("photo={}".format(photo))
         method = 'sendPhoto'
         params = {'chat_id': chat_id, 'photo': photo}
         resp = requests.post(self.api_url + method, params)

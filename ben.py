@@ -1,4 +1,4 @@
-from time import sleep
+import time
 import bigbearweatherbot
 import config
 
@@ -12,7 +12,7 @@ def main():
 
     while True:
 
-        sleep(0.5)
+        time.sleep(0.5)
         updates_len = 0
         updates = ben.get_updates_json(offset=confirmed_offset + 1)
         try:
@@ -28,7 +28,7 @@ def main():
                 if ud['message']['text'].lower().find('/bb') != -1:
                     reply = bigbearweatherbot.scrape_bens()
                     ben.send_msg(chat_id, text=reply, parse='HTML')
-                    ben.send_photo(chat_id)
+                    ben.send_photo(chat_id, 'https://media-mammothresorts-com.s3-us-west-2.amazonaws.com/bbmr/snowsummit/cams/summitktla.jpg?={}'.format(int(time.time())))
             else:
                 reply = "Hello {}, I am the Big Bear Weather Bot.  " \
                         "I can give you the Ben's weather forecast for " \
