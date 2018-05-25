@@ -25,7 +25,6 @@ class Bbw:
         return resp
 
     def send_photo(self, chat_id, photo):
-        print("photo={}".format(photo))
         method = 'sendPhoto'
         params = {'chat_id': chat_id, 'photo': photo}
         resp = requests.post(self.api_url + method, params)
