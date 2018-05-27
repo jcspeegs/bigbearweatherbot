@@ -14,8 +14,8 @@ def main():
 
         time.sleep(0.5)
         updates_len = 0
-        updates = ben.get_updates_json(offset=confirmed_offset + 1)
         try:
+            updates = ben.get_updates_json(offset=confirmed_offset + 1)
             updates_len = len(updates['result'])
         except:
         #     print("len(updates['result'] threw error.  Likely KeyError")
