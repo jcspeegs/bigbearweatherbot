@@ -29,6 +29,11 @@ def main():
                     reply = bigbearweatherbot.scrape_bens()
                     ben.send_msg(chat_id, text=reply, parse='HTML')
                     ben.send_photo(chat_id, 'https://media-mammothresorts-com.s3-us-west-2.amazonaws.com/bbmr/snowsummit/cams/summitktla.jpg?={}'.format(int(time.time())))
+                elif ud['message']['text'].lower().find('/aa') != -1:
+                    #reply = bigbearweatherbot.scrape_aa(zip=92646)
+                    reply = 'aaaaaa'
+                    print(reply)
+                    ben.send_msg(chat_id, text=reply, loc=True)
             else:
                 reply = "Hello {}, I am the Big Bear Weather Bot.  " \
                         "I can give you the Ben's weather forecast for " \
